@@ -1,28 +1,23 @@
 # ഉള്ളിലെ ശത്രു — The Mind Among Us
 
-A psychological-thriller social-deduction mind game. Solo demo: you play against five rule-based AI characters. No accounts, no paid APIs, no build step.
+A dark escape-room puzzle thriller with 150+ puzzles and solo AI co-op. No chat box, no accounts, no paid APIs, no build step.
 
-## Play
+## How It Plays
 
-Open `index.html` in a browser, or serve the folder as a static site.
-
-One round is about 10 minutes and has three stages (code lock, three boxes, three doors). Each person gets a private clue. One participant is secretly **The Mind** and misleads the team. After every stage there is a discussion and a vote to eject a suspect. Wrong answers and wrong ejections cost the team; three mistakes and the room closes.
-
-Replayability: the Mind, clues, puzzles, bot names, and personalities are randomized each game.
+- **Escape Mode (3 Chambers):** Unlock three vault doors by cracking lock pins. Each pin is a puzzle drawn randomly from a **154-puzzle bank** across 8 categories (Malayalam കടങ്കഥ riddles, math, sequences, logic, ciphers, word scrambles, SVG visual puzzles, and memory flashes).
+- **100-Puzzle Challenge (Marathon):** Play through 20 vault locks (100 puzzles total) with team help.
+- **Team Cooperation & The Mind Twist:** Four AI teammates solve pins alongside you. Ask any teammate for help when stuck, or step in to solve their stuck puzzles (+10s bonus). One teammate is secretly **ഉള്ളിലെ ശത്രു (The Mind)** and may feed you wrong hints or lock a corrupted pin — inspect pins or accuse suspects to lock them out.
 
 ## Files
 
-- `index.html`, `styles.css`, `game.js` — UI
-- `logic.js` — game engine (also used by tests)
-- `test.js` — Node sanity checks
-- `manifest.json` — add-to-home-screen
-- `vercel.json` — static deploy
+- `puzzles.js` — 154-puzzle bank + SVG diagram helpers
+- `logic.js` — JSON-serializable game engine (ready for future room-code multiplayer)
+- `game.js`, `styles.css`, `index.html` — mobile-first dark escape-room UI + WebAudio SFX
+- `test.js` — automated puzzle bank & playthrough tests
 
 ## Test
 
 ```bash
-node --check logic.js game.js test.js
+node --check puzzles.js logic.js game.js test.js
 node test.js
 ```
-
-Group (multiplayer) mode is not in this demo.
